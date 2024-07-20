@@ -1,0 +1,30 @@
+[
+  {
+    "Students": [
+      {
+        "Id": 2,
+        "Name": "Sabir",
+        "Surname": "Mehdiyev",
+        "ClassId": 1
+      }
+    ],
+    "Id": 1,
+    "Name": "PB303",
+    "Type": 20,
+    "Limit": 20
+  },
+  {
+    "Students": [],
+    "Id": 4,
+    "Name": "PB302",
+    "Type": 15,
+    "Limit": 15
+  },
+  {
+    "Students": [],
+    "Id": 5,
+    "Name": "PB301",
+    "Type": 20,
+    "Limit": 20
+  }
+]
