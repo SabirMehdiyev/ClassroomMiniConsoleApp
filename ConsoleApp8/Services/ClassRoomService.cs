@@ -50,11 +50,11 @@ public class ClassRoomService
         var classroom = classRooms.Find(c => c.Id == classroomId);
         if (classroom == null)
         {
-            throw new NotFoundException("Classroom not found");
+            throw new ClassroomNotFoundException($"Classroom with ID {classroomId} not found.");
         }
         if (classroom.Students.Count >= classroom.Limit)
         {
-            throw new ClassLimitException("Limit reached");
+            throw new ClassLimitException("Classroom has reached its limit");
         }
         student.Id = studentId++;
         student.ClassId = classroomId;
@@ -82,6 +82,7 @@ public class ClassRoomService
             {
                 classroom.Students.Remove(removedStudent);
                 SaveClassrooms();
+                Helper.Print($"Student {removedStudent.Name} removed successfully.", ConsoleColor.Green);
                 return;
             }
         }
@@ -93,7 +94,7 @@ public class ClassRoomService
         var classRoom = classRooms.Find(c => c.Id == classroomId);
         if (classRoom is null)
         {
-            throw new NotFoundException("Classroom not found");
+            throw new ClassroomNotFoundException("Classroom not found");
         }
 
         if (classRoom.Students.Count == 0)
